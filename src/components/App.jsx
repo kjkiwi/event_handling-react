@@ -2,18 +2,18 @@ import React, { useState } from "react";
 
 function App() {
   const [headingText, setHeadingText] = useState("Hello");
+  const [mouseActive, setMouseActive] = useState(false);
 
   function handleClick() {
     setHeadingText("Submitted");
   }
 
-  const [bgColor, setBgColor] = useState("white");
-  function colorBlack() {
-    setBgColor("black");
+  function whenHovering() {
+    setMouseActive(true);
   }
 
-  function colorWhite() {
-    setBgColor("white");
+  function notHovering() {
+    setMouseActive(false);
   }
 
   return (
@@ -21,9 +21,13 @@ function App() {
       <h1>{headingText}</h1>
       <input type="text" placeholder="What's your name?" />
       <button
-        style={{ backgroundColor: bgColor }}
-        onMouseOver={colorBlack}
-        onMouseOut={colorWhite}
+        style={
+          mouseActive
+            ? { backgroundColor: "black" }
+            : { backgroundColor: "white" }
+        }
+        onMouseOver={whenHovering}
+        onMouseOut={notHovering}
         onClick={handleClick}
       >
         Submit

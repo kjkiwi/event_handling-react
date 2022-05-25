@@ -6,11 +6,28 @@ function App() {
   function handleClick() {
     setHeadingText("Submitted");
   }
+
+  const [bgColor, setBgColor] = useState("white");
+  function colorBlack() {
+    setBgColor("black");
+  }
+
+  function colorWhite() {
+    setBgColor("white");
+  }
+
   return (
     <div className="container">
       <h1>{headingText}</h1>
       <input type="text" placeholder="What's your name?" />
-      <button onClick={handleClick}>Submit</button>
+      <button
+        style={{ backgroundColor: bgColor }}
+        onMouseOver={colorBlack}
+        onMouseOut={colorWhite}
+        onClick={handleClick}
+      >
+        Submit
+      </button>
     </div>
   );
 }

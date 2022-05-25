@@ -21,11 +21,7 @@ function App() {
       <h1>{headingText}</h1>
       <input type="text" placeholder="What's your name?" />
       <button
-        style={
-          mouseActive
-            ? { backgroundColor: "black" }
-            : { backgroundColor: "white" }
-        }
+        style={{ backgroundColor: mouseActive ? "black" : "white" }}
         onMouseOver={whenHovering}
         onMouseOut={notHovering}
         onClick={handleClick}
